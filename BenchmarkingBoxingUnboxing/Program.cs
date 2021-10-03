@@ -8,10 +8,6 @@ namespace BenchmarkingBoxingUnboxing
     {
         static void Main(string[] args)
         {
-            new BenchmarkClass().WithBoxing();
-            new BenchmarkClass().WithoutBoxing();
-            new BenchmarkClass().WithoutUnBoxing();
-            new BenchmarkClass().WithUnBoxing();
             BenchmarkRunner.Run<BenchmarkClass>();
         }
     }
@@ -30,7 +26,7 @@ namespace BenchmarkingBoxingUnboxing
         public object WithBoxing() => provider.WithBoxing(testValueInt);
 
         [Benchmark]
-        public object WithoutUnBoxing() => provider.WithoutUnBoxing(testValueInt);
+        public object WithoutUnBoxing() => provider.WithoutUnBoxing(testValueObject);
 
         [Benchmark]
         public int WithUnBoxing() => provider.WithUnBoxing(testValueObject);
